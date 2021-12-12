@@ -54,6 +54,26 @@ const questionCalc = () => {
   const userAnswer = readlineSync.question('Your answer: ');
   return { userAnswer, correctAnswer };
 };
+
+const getGcd = (num1, num2) => {
+  let result = 1;
+  for (let i = 2; i <= Math.min(num1, num2); i += 1) {
+    if (num1 % i === 0 && num2 % i ===0){
+      result = i;
+    }
+  }
+  return result;
+};
+
+const questionGcd = () => {
+  console.log('Find the greatest common divisor of given numbers.');
+  const num1 = Math.round(Math.random() * 100);
+  const num2 = Math.round(Math.random() * 100);
+  console.log(`Question ${num1} ${num2}`);
+  const correctAnswer = getGcd(num1, num2).toString();
+  const userAnswer = readlineSync.question('Your answer: ');
+  return { userAnswer, correctAnswer };
+};
 // ----------------------------------------
 const brainEven = () => {
   const name = greeting();
@@ -65,4 +85,9 @@ const brainCalc = () => {
   questionary(name, questionCalc);
 };
 
-export { greeting, brainEven, brainCalc };
+const brainGcd = () => {
+  const name = greeting();
+  questionary(name, questionGcd);
+};
+
+export { greeting, brainEven, brainCalc, brainGcd };
