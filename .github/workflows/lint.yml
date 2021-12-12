@@ -13,12 +13,10 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v2
       - name: npm install
-        run: |
+        run: 
           make install
-        # Add environment variables
-        env:
-          CI: true
-      # Runs a single command using the runners shell
-      - name: linter-step
-        run: make lint
+      - name: Run Linter
+        run: 
+          make lint
