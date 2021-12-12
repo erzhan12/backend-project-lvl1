@@ -74,6 +74,7 @@ const questionGcd = () => {
   const userAnswer = readlineSync.question('Your answer: ');
   return { userAnswer, correctAnswer };
 };
+
 // ----------------------------------------
 const brainEven = () => {
   const name = greeting();
@@ -91,5 +92,5 @@ const brainGcd = () => {
 };
 
 export {
-  greeting, brainEven, brainCalc, brainGcd,
+  greeting, questionary, brainEven, brainCalc, brainGcd,
 };
