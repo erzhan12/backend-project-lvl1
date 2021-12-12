@@ -58,7 +58,7 @@ const questionCalc = () => {
 const getGcd = (num1, num2) => {
   let result = 1;
   for (let i = 2; i <= Math.min(num1, num2); i += 1) {
-    if (num1 % i === 0 && num2 % i ===0){
+    if (num1 % i === 0 && num2 % i === 0) {
       result = i;
     }
   }
@@ -90,4 +90,6 @@ const brainGcd = () => {
   questionary(name, questionGcd);
 };
 
-export { greeting, brainEven, brainCalc, brainGcd };
+export {
+  greeting, brainEven, brainCalc, brainGcd,
+};
