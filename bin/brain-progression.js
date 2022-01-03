@@ -26,7 +26,7 @@ const generateProgression = () => {
 const questionProgression = () => {
   console.log('What number is missing in the progression?');
   const progression = generateProgression();
-  console.log(`Question: ${progression.question}`);
+  console.log(`Question:${progression.question}`);
   const userAnswer = readlineSync.question('Your answer: ');
   return { userAnswer, correctAnswer: progression.correctAnswer };
 };
