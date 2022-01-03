@@ -5,7 +5,7 @@ import { greeting, questionary } from '../src/cli.js';
 
 const questionEven = () => {
   const num = Math.round(Math.random() * 100);
-  console.log(`Question ${num}`);
+  console.log(`Question: ${num}`);
   const userAnswer = readlineSync.question('Your answer: ');
   let correctAnswer = '';
   if (num % 2 === 0) {

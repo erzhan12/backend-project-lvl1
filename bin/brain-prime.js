@@ -20,7 +20,7 @@ const generateQuestion = () => {
 
 const questionPrime = () => {
   const question = generateQuestion();
-  console.log(`Question ${question.number}`);
+  console.log(`Question: ${question.number}`);
   const userAnswer = readlineSync.question('Your answer: ');
   return { userAnswer, correctAnswer: question.correctAnswer };
 };

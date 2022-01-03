@@ -13,7 +13,7 @@ const generateExpression = () => {
 
 const questionCalc = () => {
   const expression = generateExpression();
-  console.log(`Question ${expression}`);
+  console.log(`Question: ${expression}`);
   const correctAnswer = eval(expression).toString();
   const userAnswer = readlineSync.question('Your answer: ');
   return { userAnswer, correctAnswer };
