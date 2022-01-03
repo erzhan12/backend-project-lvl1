@@ -18,6 +18,7 @@ const questionary = (name, questionFunc) => {
     } else {
       rightAnswerRow = 0;
       console.log(`'${questionResult.userAnswer}' is wrong answer ;(. Correct answer was '${questionResult.correctAnswer}'.`);
+      console.log(`Let's try again, ${name}!`)
       return;
     }
   }
