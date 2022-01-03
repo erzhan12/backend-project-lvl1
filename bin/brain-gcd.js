@@ -14,8 +14,8 @@ const getGcd = (num1, num2) => {
 };
 
 const questionGcd = () => {
-  const num1 = Math.round(Math.random() * 100);
-  const num2 = Math.round(Math.random() * 100);
+  const num1 = Math.ceil(Math.random() * 100);
+  const num2 = Math.ceil(Math.random() * 100);
   console.log(`Question: ${num1} ${num2}`);
   const correctAnswer = getGcd(num1, num2).toString();
   const userAnswer = readlineSync.question('Your answer: ');
