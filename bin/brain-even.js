@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 import readlineSync from 'readline-sync';
-import { greeting, questionary } from '../src/cli.js';
+import { play } from '../src/cli.js';
 
 const questionEven = () => {
   const num = Math.round(Math.random() * 100);
@@ -16,10 +16,11 @@ const questionEven = () => {
   return { userAnswer, correctAnswer };
 };
 
-const brainEven = () => {
-  const name = greeting();
-  console.log('Answer "yes" if the number is even, otherwise answer "no".');
-  questionary(name, questionEven);
-};
+// const brainEven = () => {
+//   const name = greeting();
+//   console.log('Answer "yes" if the number is even, otherwise answer "no".');
+//   questionary(name, questionEven);
+// };
 
-brainEven();
+// brainEven();
+play('Answer "yes" if the number is even, otherwise answer "no".', questionEven);

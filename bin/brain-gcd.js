@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 import readlineSync from 'readline-sync';
-import { greeting, questionary } from '../src/cli.js';
+import { play } from '../src/cli.js';
 
 const getGcd = (num1, num2) => {
   let result = 1;
@@ -22,10 +22,11 @@ const questionGcd = () => {
   return { userAnswer, correctAnswer };
 };
 
-const brainGcd = () => {
-  const name = greeting();
-  console.log('Find the greatest common divisor of given numbers.');
-  questionary(name, questionGcd);
-};
+// const brainGcd = () => {
+//   const name = greeting();
+//   console.log('Find the greatest common divisor of given numbers.');
+//   questionary(name, questionGcd);
+// };
 
-brainGcd();
+// brainGcd();
+play('Find the greatest common divisor of given numbers.', questionGcd);

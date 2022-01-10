@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 import readlineSync from 'readline-sync';
-import { greeting, questionary } from '../src/cli.js';
+import { play } from '../src/cli.js';
 
 const evalExpression = (n1, n2, op) => {
   if (op === '+') return n1 + n2;
@@ -27,10 +27,11 @@ const questionCalc = () => {
   return { userAnswer, correctAnswer };
 };
 
-const brainCalc = () => {
-  const name = greeting();
-  console.log('What is the result of the expression?');
-  questionary(name, questionCalc);
-};
+// const brainCalc = () => {
+//   const name = greeting();
+//   console.log('What is the result of the expression?');
+//   questionary(name, questionCalc);
+// };
 
-brainCalc();
+// brainCalc();
+play('What is the result of the expression?', questionCalc);

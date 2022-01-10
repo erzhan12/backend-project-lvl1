@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 import readlineSync from 'readline-sync';
-import { greeting, questionary } from '../src/cli.js';
+import { play } from '../src/cli.js';
 
 const isPrime = (num) => {
   if (num === 2) return true;
@@ -25,10 +25,11 @@ const questionPrime = () => {
   return { userAnswer, correctAnswer: question.correctAnswer };
 };
 
-const brainPrime = () => {
-  const name = greeting();
-  console.log('Answer "yes" if given number is prime. Otherwise answer "no".');
-  questionary(name, questionPrime);
-};
+// const brainPrime = () => {
+//   const name = greeting();
+//   console.log('Answer "yes" if given number is prime. Otherwise answer "no".');
+//   questionary(name, questionPrime);
+// };
 
-brainPrime();
+// brainPrime();
+play('Answer "yes" if given number is prime. Otherwise answer "no".', questionPrime);

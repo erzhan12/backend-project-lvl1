@@ -25,6 +25,12 @@ const questionary = (name, questionFunc) => {
   console.log(`Congratulations, ${name}!`);
 };
 
+const play = (question, game) => {
+  const name = greeting();
+  console.log(question);
+  questionary(name, game);
+};
+
 export {
-  greeting, questionary,
+  greeting, questionary, play,
 };

@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 import readlineSync from 'readline-sync';
-import { greeting, questionary } from '../src/cli.js';
+import { play } from '../src/cli.js';
 
 const generateProgression = () => {
   const begin = Math.round(Math.random() * 10);
@@ -24,16 +24,17 @@ const generateProgression = () => {
 };
 
 const questionProgression = () => {
-  console.log('What number is missing in the progression?');
   const progression = generateProgression();
   console.log(`Question:${progression.question}`);
   const userAnswer = readlineSync.question('Your answer: ');
   return { userAnswer, correctAnswer: progression.correctAnswer };
 };
 
-const brainProgression = () => {
-  const name = greeting();
-  questionary(name, questionProgression);
-};
+// const brainProgression = () => {
+//   const name = greeting();
+//   console.log('What number is missing in the progression?');
+//   questionary(name, questionProgression);
+// };
 
-brainProgression();
+// brainProgression();
+play('What number is missing in the progression?', questionProgression);
