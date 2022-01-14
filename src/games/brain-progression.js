@@ -17,6 +17,7 @@ const generateQuestion = () => {
       question = `${question} ${num}`;
     }
   }
+  question = question.trim();
   return { question, correctAnswer };
 };
 

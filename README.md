@@ -7,3 +7,16 @@
 
 ### Демонстрационный проект:
 <a href="https://asciinema.org/a/lvOv1NkxXzOs9pMyROO1L7Hjb">https://asciinema.org/a/lvOv1NkxXzOs9pMyROO1L7Hjb</a>
+
+### Краткое описание:
+Проект представляет собой набор математических игр:
+#### brain-calc: Калькулятор
+#### brain-even: Проверка на четность
+#### brain-gcd: НОД
+#### brain-prime: Простое ли число?
+#### brain-progression: Арифметическая прогрессия 
+
+Запускается из командной строки, нужно набрать имя игры, например brain-calc
+
+### Установка
+make install
