@@ -1,30 +1,20 @@
-import readlineSync from 'readline-sync';
 import play from '../index.js';
 
 const isPrime = (num) => {
-  if (num === 2) return true;
-  if (num < 2 || num % 2 === 0) return false;
-  for (let i = 3; i < num; i += 2) {
+  for (let i = 2; i < num; i += 1) {
     if (num % i === 0) return false;
   }
-  return true;
+  return num > 1;
 };
 
 const generateQuestion = () => {
-  const number = Math.round(Math.random() * 100);
-  const correctAnswer = isPrime(number) ? 'yes' : 'no';
-  return { number, correctAnswer };
-};
-
-const questionPrime = () => {
-  const question = generateQuestion();
-  console.log(`Question: ${question.number}`);
-  const userAnswer = readlineSync.question('Your answer: ');
-  return { userAnswer, correctAnswer: question.correctAnswer };
+  const question = Math.round(Math.random() * 100);
+  const correctAnswer = isPrime(question) ? 'yes' : 'no';
+  return { question, correctAnswer };
 };
 
 const brainPrime = () => {
-  play('Answer "yes" if given number is prime. Otherwise answer "no".', questionPrime);
+  play('Answer "yes" if given number is prime. Otherwise answer "no".', generateQuestion);
 };
 
 export default brainPrime;

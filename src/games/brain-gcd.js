@@ -1,4 +1,3 @@
-import readlineSync from 'readline-sync';
 import play from '../index.js';
 
 const getGcd = (num1, num2) => {
@@ -11,17 +10,16 @@ const getGcd = (num1, num2) => {
   return result;
 };
 
-const questionGcd = () => {
+const generateQuestion = () => {
   const num1 = Math.ceil(Math.random() * 100);
   const num2 = Math.ceil(Math.random() * 100);
-  console.log(`Question: ${num1} ${num2}`);
+  const question = `${num1} ${num2}`;
   const correctAnswer = getGcd(num1, num2).toString();
-  const userAnswer = readlineSync.question('Your answer: ');
-  return { userAnswer, correctAnswer };
+  return { question, correctAnswer };
 };
 
 const brainGcd = () => {
-  play('Find the greatest common divisor of given numbers.', questionGcd);
+  play('Find the greatest common divisor of given numbers.', generateQuestion);
 };
 
 export default brainGcd;

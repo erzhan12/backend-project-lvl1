@@ -1,7 +1,6 @@
-import readlineSync from 'readline-sync';
 import play from '../index.js';
 
-const generateProgression = () => {
+const generateQuestion = () => {
   const begin = Math.round(Math.random() * 10);
   const step = Math.ceil(Math.random() * 10);
   const n = 10;
@@ -21,15 +20,8 @@ const generateProgression = () => {
   return { question, correctAnswer };
 };
 
-const questionProgression = () => {
-  const progression = generateProgression();
-  console.log(`Question:${progression.question}`);
-  const userAnswer = readlineSync.question('Your answer: ');
-  return { userAnswer, correctAnswer: progression.correctAnswer };
-};
-
 const brainProgression = () => {
-  play('What number is missing in the progression?', questionProgression);
+  play('What number is missing in the progression?', generateQuestion);
 };
 
 export default brainProgression;

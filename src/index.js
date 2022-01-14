@@ -1,10 +1,18 @@
+import readlineSync from 'readline-sync';
 import greeting from './cli.js';
 
-const questionary = (name, questionFunc) => {
+const question = (generateFunc) => {
+  const generatedQuestion = generateFunc();
+  console.log(`Question: ${generatedQuestion.question}`);
+  const userAnswer = readlineSync.question('Your answer: ');
+  return { userAnswer, correctAnswer: generatedQuestion.correctAnswer };
+};
+
+const questionary = (name, generateFunc) => {
   let rightAnswerRow = 0;
   let questionResult = null;
   while (rightAnswerRow < 3) {
-    questionResult = questionFunc();
+    questionResult = question(generateFunc);
     if (questionResult.userAnswer === questionResult.correctAnswer) {
       rightAnswerRow += 1;
       console.log('Correct!');
@@ -18,10 +26,10 @@ const questionary = (name, questionFunc) => {
   console.log(`Congratulations, ${name}!`);
 };
 
-const play = (question, game) => {
+const play = (questionText, generateFunc) => {
   const name = greeting();
-  console.log(question);
-  questionary(name, game);
+  console.log(questionText);
+  questionary(name, generateFunc);
 };
 
 export default play;
