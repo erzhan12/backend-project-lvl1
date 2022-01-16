@@ -1,10 +1,9 @@
 import play from '../index.js';
+import generateRandom from '../generateRandom.js';
 
-const generateQuestion = () => {
-  const begin = Math.round(Math.random() * 10);
-  const step = Math.ceil(Math.random() * 10);
-  const n = 10;
-  const secretIndex = Math.floor(Math.random() * n);
+const questionText = 'What number is missing in the progression?';
+
+const generateProgression = (begin, step, n, secretIndex) => {
   let question = '';
   let correctAnswer = '';
   let num = begin;
@@ -17,12 +16,19 @@ const generateQuestion = () => {
       question = `${question} ${num}`;
     }
   }
-  question = question.trim();
-  return { question, correctAnswer };
+  return [question.trim(), correctAnswer];
+};
+
+const generateQuestion = () => {
+  const begin = generateRandom(10);
+  const step = generateRandom(10) + 1;
+  const n = 10;
+  const secretIndex = generateRandom(n);
+  return generateProgression(begin, step, n, secretIndex);
 };
 
 const brainProgression = () => {
-  play('What number is missing in the progression?', generateQuestion);
+  play(questionText, generateQuestion);
 };
 
 export default brainProgression;
