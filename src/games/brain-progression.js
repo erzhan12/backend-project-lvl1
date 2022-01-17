@@ -2,6 +2,7 @@ import play from '../index.js';
 import generateRandom from '../generateRandom.js';
 
 const questionText = 'What number is missing in the progression?';
+const progressionSize = 10;
 
 const generateProgression = (begin, step, n, secretIndex) => {
   let question = '';
@@ -22,7 +23,7 @@ const generateProgression = (begin, step, n, secretIndex) => {
 const generateQuestion = () => {
   const begin = generateRandom(10);
   const step = generateRandom(10) + 1;
-  const n = 10;
+  const n = progressionSize;
   const secretIndex = generateRandom(n);
   return generateProgression(begin, step, n, secretIndex);
 };
