@@ -1,29 +1,30 @@
-import play from '../index.js';
+import startGame from '../index.js';
 import generateRandom from '../generateRandom.js';
 
 const questionText = 'What is the result of the expression?';
+const supportedOperations = ['+', '-', '*'];
 
-const evaluateExpression = (n1, n2, op) => {
-  switch (op) {
-    case '+': return n1 + n2;
-    case '-': return n1 - n2;
-    case '*': return n1 * n2;
-    default: return '';
+const evaluateExpression = (number1, number2, operation) => {
+  switch (operation) {
+    case '+': return number1 + number2;
+    case '-': return number1 - number2;
+    case '*': return number1 * number2;
+    default: throw new Error(`operation ${operation} is not supported`);
   }
 };
 
 const generateQuestion = () => {
-  const n1 = generateRandom(100);
-  const n2 = generateRandom(100);
-  const operandIndex = generateRandom(3);
-  const operands = ['+', '-', '*'];
-  const correctAnswer = evaluateExpression(n1, n2, operands[operandIndex]).toString();
-  const question = `${n1} ${operands[operandIndex]} ${n2}`;
+  const number1 = generateRandom(0, 100);
+  const number2 = generateRandom(0, 100);
+  const operationIndex = generateRandom(0, 2);
+  const correctAnswer = evaluateExpression(number1, number2, supportedOperations[operationIndex])
+    .toString();
+  const question = `${number1} ${supportedOperations[operationIndex]} ${number2}`;
   return [question, correctAnswer];
 };
 
 const brainCalc = () => {
-  play(questionText, generateQuestion);
+  startGame(generateQuestion, questionText);
 };
 
 export default brainCalc;

@@ -1,5 +1,5 @@
 import generateRandom from '../generateRandom.js';
-import play from '../index.js';
+import startGame from '../index.js';
 
 const questionText = 'Find the greatest common divisor of given numbers.';
 
@@ -14,15 +14,15 @@ const getGcd = (num1, num2) => {
 };
 
 const generateQuestion = () => {
-  const num1 = generateRandom(100) + 1;
-  const num2 = generateRandom(100) + 1;
-  const question = `${num1} ${num2}`;
-  const correctAnswer = getGcd(num1, num2).toString();
+  const number1 = generateRandom(1, 100);
+  const number2 = generateRandom(1, 100);
+  const question = `${number1} ${number2}`;
+  const correctAnswer = getGcd(number1, number2).toString();
   return [question, correctAnswer];
 };
 
 const brainGcd = () => {
-  play(questionText, generateQuestion);
+  startGame(generateQuestion, questionText);
 };
 
 export default brainGcd;
