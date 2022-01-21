@@ -18,9 +18,8 @@ const generateQuestion = () => {
   const number2 = generateRandom(0, 100);
   const operationIndex = generateRandom(0, 2);
   const correctAnswer = evaluateExpression(number1, number2, supportedOperations[operationIndex])
-    .toString();
   const question = `${number1} ${supportedOperations[operationIndex]} ${number2}`;
-  return [question, correctAnswer];
+  return [question, String(correctAnswer)];
 };
 
 const brainCalc = () => {

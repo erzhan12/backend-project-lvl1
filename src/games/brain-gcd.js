@@ -3,10 +3,11 @@ import startGame from '../index.js';
 
 const questionText = 'Find the greatest common divisor of given numbers.';
 
-const getGcd = (num1, num2) => {
+const getGcd = (number1, number2) => {
   let result = 1;
-  for (let i = 2; i <= Math.min(num1, num2); i += 1) {
-    if (num1 % i === 0 && num2 % i === 0) {
+  const minimum = Math.min(number1, number2)
+  for (let i = 2; i <= minimum; i += 1) {
+    if (number1 % i === 0 && number2 % i === 0) {
       result = i;
     }
   }
